@@ -4,9 +4,9 @@ html, body {
 
 @media only screen and (max-width: 768px) {
     .planning {
-      
+        margin-top: 300px;
         padding: 20px; /* Add padding to the .planning div */
-        max-height: calc(100vh - 300px); /* Limit height to viewport height minus header/footer */
+        
     }
 }
 
