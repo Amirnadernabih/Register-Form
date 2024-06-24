@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener("click", () => {
             if (currentStepIndex < companyFormSteps.length - 1) {
                 // Validate plan selection before proceeding
-                if (currentStepIndex === 3 && selectedPlan.title === "") {
+                if (currentStepIndex === 2 && selectedPlan.title === "") {
                     alert("Please select a plan before proceeding.");
                     return;
                 }
