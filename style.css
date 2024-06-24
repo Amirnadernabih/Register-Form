@@ -4,10 +4,16 @@ html, body {
 
 @media only screen and (max-width: 768px) {
     .planning {
-        margin-top: 300px;
         padding: 20px; /* Add padding to the .planning div */
-        
+        max-height: 110px; /* Minimum height to cover the entire viewport */
     }
+
+    .planning .form-step {
+        flex: 1; /* Allow the form steps to expand vertically */
+        overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+    }
+
+
 }
 
 body {
