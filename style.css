@@ -2,12 +2,14 @@ html, body {
     height: 100%;
 }
 
-/* @media only screen and (min-width: 0px) and (max-width: 768px) {
-  .planning{
-    height: 90vh;
-  }
+@media only screen and (max-width: 768px) {
+    .planning {
+      
+        padding: 20px; /* Add padding to the .planning div */
+        max-height: calc(100vh - 300px); /* Limit height to viewport height minus header/footer */
+    }
+}
 
-  } */
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
