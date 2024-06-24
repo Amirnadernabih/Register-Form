@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div id="progressContainer" class="d-none"> <!-- Container for progress dots -->
+            <ul class="progress-dots d-flex justify-content-center mb-4">
+                <li id="dot1" class="progress-dot">1</li>
+                <li id="dot2" class="progress-dot">2</li>
+                <li id="dot3" class="progress-dot">3</li>
+                <li id="dot4" class="progress-dot">4</li>
+            </ul>
+        </div>
+        <!-- Select Account Type -->
+        <div class="form-step form-step-active" id="accountTypeStep">
+            <h2>Register</h2>
+            <div class="register">
+                <div class="radio-group">
+                    <label>Personal</label>
+                    <input type="radio" name="accountType" value="personal" checked>
+                </div>
+                <div class="radio-group">
+                    <label>Company</label>
+                    <input type="radio" name="accountType" value="company">
+                </div>
+            </div>
+            <button id="btn-accountType" class="btn btn-primary">Next</button>
+        </div>
+        
+        <!-- User Registration -->
+        <div class="form-step" id="userRegistrationStep">
+            <h2>Register User</h2>
+            <form id="userForm">
+                <input type="text" class="form-control" placeholder="First Name" required>
+                <input type="text" class="form-control" placeholder="Last Name" required>
+                <input type="email" class="form-control" placeholder="Email" required>
+                <input type="password" class="form-control" placeholder="Password" required>
+                <input type="password" class="form-control" placeholder="Confirm Password" required>
+                <label><input type="checkbox" required> Accept Terms</label>
+                <button type="submit" class="btn btn-primary btn-block mt-3">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Company Registration Steps -->
+        <div class="form-step" id="companyStep1">
+            <h2>Tell Us About Your Company</h2>
+            <form id="companyForm1">
+                <input type="text" class="form-control" placeholder="Company Name" required>
+                <input type="text" class="form-control" placeholder="Address" required>
+                <input type="text" class="form-control" placeholder="Phone Number" required>
+                <input type="number" placeholder="Total Number of Staff" required>
+                <div class="buttondiv mt-3 text-center">
+                    <button type="button" class="btn btn-primary btn-next">Next</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-step" id="companyStep2">
+            <h2>Register Company</h2>
+            <form id="companyForm2">
+                <input type="text" class="form-control" placeholder="First Name" required>
+                <input type="text" class="form-control" placeholder="Last Name" required>
+                <input type="email" class="form-control" placeholder="Email" required>
+                <input type="password" class="form-control" placeholder="Password" required>
+                <input type="password" class="form-control" placeholder="Confirm Password" required>
+                <label><input type="checkbox" required> Accept Terms</label>
+                <div class="buttondiv mt-3 text-center">
+                    <button type="button" class="btn btn-primary btn-next">Next</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-step" id="companyStep3">
+            <h2>Which Plan Suits Your Needs</h2>
+        
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Plan 1</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <button class="btn btn-primary btn-select-plan">Select</button>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Plan 2</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <button class="btn btn-primary btn-select-plan">Select</button>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Plan 3</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <button class="btn btn-primary btn-select-plan">Select</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-6">
+                    <p class="text-center">Need something more custom?</p>
+                </div>
+            </div>
+        
+            <div class="row justify-content-center">
+                <div class="col-md-6 mb-3">
+                    <button type="button" class="btn btn-primary btn-block">Contact Us</button>
+                </div>
+            </div>
+        
+            <div class="row justify-content-center">
+                <div class="col text-center">
+                    <button type="button" class="btn btn-primary btn-next">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-step" id="companyStep4">
+            <h2>Plan Overview</h2>
+            <form id="companyForm3">
+                <div class="container border border-dark rounded p-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 id="planTitle">Plan Information</h3>
+                            <p id="planDetails">Select a plan.</p>
+                        </div>
+                    </div>
+
+                    <div class="row border-top border-dark pt-4">
+                        <div class="col text-center">
+                            <h2>Credit Card Information</h2>
+                        </div>
+                    </div>
+
+                    <div class="row pt-4">
+                        <div class="col-6">
+                            <input type="text" class="form-control" placeholder="Name On Card" required>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" class="form-control" placeholder="Billing Address" required>
+                        </div>
+                    </div>
+                    <div class="row pt-2">
+                        <div class="col-6">
+                            <select id="expiryMonth" name="expiryMonth" class="form-control" required>
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <input type="number" id="expiryYear" name="expiryYear" class="form-control" placeholder="YYYY" min="2024" required>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="buttondiv mt-3 text-center">
+                    <button type="submit" class="btn btn-primary btn-next">Pay</button>
+                </div>
+            </form>
+        </div>
+        
+
+
+
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>
