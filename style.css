@@ -2,12 +2,12 @@ html, body {
     height: 100%;
 }
 
-@media only screen and (min-width: 0px) and (max-width: 768px) {
+/* @media only screen and (min-width: 0px) and (max-width: 768px) {
   .planning{
     height: 90vh;
   }
 
-  }
+  } */
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
