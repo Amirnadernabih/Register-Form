@@ -7,10 +7,11 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('companyStep3'),
         document.getElementById('companyStep4')
     ];
-    const progressContainer = document.getElementById('progressContainer'); // Updated to progressContainer
+    const progressContainer = document.getElementById('progressContainer');
     const progressDots = document.querySelectorAll('.progress-dot');
     const btnSelectAccountType = document.getElementById('btn-accountType');
     const buttonsNext = document.querySelectorAll(".btn-next");
+    const buttonsPrevious = document.querySelectorAll(".btn-previous");
     const btnSelectPlan = document.querySelectorAll('.btn-select-plan');
 
     let currentStepIndex = 0;
@@ -26,15 +27,14 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         currentStepIndex = stepIndex;
         updateProgressDots();
-        updateProgressContainerVisibility(); // Call function to update progress dots visibility
+        updateProgressContainerVisibility();
     }
 
     function updateProgressContainerVisibility() {
-        // Check if current step is either accountTypeStep or userRegistrationStep
         if (stepAccountType.classList.contains('form-step-active') || stepUserRegistration.classList.contains('form-step-active')) {
-            progressContainer.classList.add('d-none'); // Hide progress dots
+            progressContainer.classList.add('d-none');
         } else {
-            progressContainer.classList.remove('d-none'); // Show progress dots
+            progressContainer.classList.remove('d-none');
         }
     }
 
@@ -56,37 +56,65 @@ document.addEventListener("DOMContentLoaded", function() {
         stepAccountType.classList.remove('form-step-active');
         if (selectedAccountType === 'personal') {
             stepUserRegistration.classList.add('form-step-active');
-            currentStepIndex = 0;
-            updateProgressContainerVisibility(); // Update progress dots visibility
+            currentStepIndex = -1; // Set index for personal registration
+            updateProgressContainerVisibility();
         } else {
+            currentStepIndex = 0; // Reset index for company registration
             companyFormSteps[currentStepIndex].classList.add('form-step-active');
-            updateProgressContainerVisibility(); // Update progress dots visibility
+            updateProgressContainerVisibility();
             updateProgressDots();
         }
     });
 
     buttonsNext.forEach(button => {
         button.addEventListener("click", () => {
+            const isPersonalRegistration = stepUserRegistration.classList.contains('form-step-active');
+            if (isPersonalRegistration) {
+                stepUserRegistration.classList.remove('form-step-active');
+                companyFormSteps[0].classList.add('form-step-active'); // Start at first company step
+                currentStepIndex = 0; // Set index to first company step
+                updateProgressContainerVisibility();
+                updateProgressDots();
+                return;
+            }
             if (currentStepIndex < companyFormSteps.length - 1) {
-                // Validate plan selection before proceeding
                 if (currentStepIndex === 2 && selectedPlan.title === "") {
                     alert("Please select a plan before proceeding.");
                     return;
                 }
-                const currentStep = companyFormSteps[currentStepIndex];
-                if (currentStep) {
-                    currentStep.classList.remove('form-step-active');
-                }
+                companyFormSteps[currentStepIndex].classList.remove('form-step-active');
                 currentStepIndex++;
-                const nextStep = companyFormSteps[currentStepIndex];
-                if (nextStep) {
-                    nextStep.classList.add('form-step-active');
-                }
+                companyFormSteps[currentStepIndex].classList.add('form-step-active');
                 updateProgressDots();
-                updateProgressContainerVisibility(); // Update progress dots visibility
+                updateProgressContainerVisibility();
                 if (currentStepIndex === companyFormSteps.length - 1) {
                     updatePlanOverview();
                 }
+            }
+        });
+    });
+
+    buttonsPrevious.forEach(button => {
+        button.addEventListener("click", () => {
+            const isPersonalRegistration = stepUserRegistration.classList.contains('form-step-active');
+            if (isPersonalRegistration) {
+                stepUserRegistration.classList.remove('form-step-active');
+                stepAccountType.classList.add('form-step-active');
+                currentStepIndex = -1; // Set index to -1 for account type
+                updateProgressContainerVisibility();
+                return;
+            }
+            if (currentStepIndex > 0) {
+                companyFormSteps[currentStepIndex].classList.remove('form-step-active');
+                currentStepIndex--;
+                companyFormSteps[currentStepIndex].classList.add('form-step-active');
+                updateProgressDots();
+                updateProgressContainerVisibility();
+            } else {
+                companyFormSteps[currentStepIndex].classList.remove('form-step-active');
+                stepAccountType.classList.add('form-step-active');
+                currentStepIndex = -1; // Set index to -1 for account type
+                updateProgressContainerVisibility();
             }
         });
     });
@@ -108,5 +136,5 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('planDetails').innerText = selectedPlan.details;
     }
 
-    updateProgressContainerVisibility(); // Initial call to hide progress dots for personal registration
+    updateProgressContainerVisibility();
 });

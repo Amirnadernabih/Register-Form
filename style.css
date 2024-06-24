@@ -2,13 +2,18 @@ html, body {
     height: 100%;
 }
 
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+  .planning{
+    height: 90vh;
+  }
+
+  }
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
     display: flex;
     justify-content: center;
     align-items: center;
-
     margin: 0;
 }
 
@@ -99,7 +104,11 @@ button:hover {
     margin-top: 20px;
     text-align: right;
 }
+
 .btn-next {
+    width: 100px; /* Adjust button width as needed */
+}
+.btn-previous {
     width: 100px; /* Adjust button width as needed */
 }
 

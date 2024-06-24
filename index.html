@@ -8,7 +8,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <div class="container whole">
         <div id="progressContainer" class="d-none"> <!-- Container for progress dots -->
             <ul class="progress-dots d-flex justify-content-center mb-4">
                 <li id="dot1" class="progress-dot">1</li>
@@ -23,11 +23,11 @@
             <div class="register">
                 <div class="radio-group">
                     <label>Personal</label>
-                    <input type="radio" name="accountType" value="personal" checked>
+                    <input type="radio" name="accountType" value="personal" style="cursor: pointer;" checked>
                 </div>
                 <div class="radio-group">
                     <label>Company</label>
-                    <input type="radio" name="accountType" value="company">
+                    <input type="radio" name="accountType" style="cursor: pointer;" value="company">
                 </div>
             </div>
             <button id="btn-accountType" class="btn btn-primary">Next</button>
@@ -55,7 +55,8 @@
                 <input type="text" class="form-control" placeholder="Address" required>
                 <input type="text" class="form-control" placeholder="Phone Number" required>
                 <input type="number" placeholder="Total Number of Staff" required>
-                <div class="buttondiv mt-3 text-center">
+                <div class="buttondiv mt-3 justify-content-between">
+                    <button type="button" class="btn btn-primary btn-previous">Previous</button>
                     <button type="button" class="btn btn-primary btn-next">Next</button>
                 </div>
             </form>
@@ -70,13 +71,14 @@
                 <input type="password" class="form-control" placeholder="Password" required>
                 <input type="password" class="form-control" placeholder="Confirm Password" required>
                 <label><input type="checkbox" required> Accept Terms</label>
-                <div class="buttondiv mt-3 text-center">
+                <div class="buttondiv mt-3 justify-content-between">
+                    <button type="button" class="btn btn-primary btn-previous">Previous</button>
                     <button type="button" class="btn btn-primary btn-next">Next</button>
                 </div>
             </form>
         </div>
 
-        <div class="form-step" id="companyStep3">
+        <div class="form-step planning" id="companyStep3">
             <h2>Which Plan Suits Your Needs</h2>
         
             <div class="row justify-content-center">
@@ -123,8 +125,9 @@
                 </div>
             </div>
         
-            <div class="row justify-content-center">
-                <div class="col text-center">
+            <div class="row justify-content-end">
+                <div class="col d-flex justify-content-end" style="gap: 5px ;">
+                    <button type="button" class="btn btn-primary btn-previous">Previous</button>
                     <button type="button" class="btn btn-primary btn-next">Next</button>
                 </div>
             </div>
@@ -183,10 +186,6 @@
                 </div>
             </form>
         </div>
-        
-
-
-
     </div>
 
     <script src="script.js"></script>
